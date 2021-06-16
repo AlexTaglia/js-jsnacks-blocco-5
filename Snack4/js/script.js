@@ -52,16 +52,18 @@ var studenti = [
 var outputTable = document.querySelector('#studenti-table');
 var htmlTable = ''
 
-htmlTable += '<thead>';
-htmlTable += '<tr>';
-htmlTable += '<th>' + 'Nome' + '</th>';
-htmlTable += '<th>' + 'Cognome' + '</th>';
-htmlTable += '<th>' + 'Anni' + '</th>';
-htmlTable += '<th>' + 'Descrizione' + '</th>';
-htmlTable += '</tr>';
-htmlTable += '</thead>';
-htmlTable += '<tbody>';
+htmlTable += '<thead>' + '<tr>';
 
+for (var i = 0; i < studenti.length; i++){ //Navighiamo all'interno dell'array
+    
+    for (var key in studenti[i]){  //Navighiamo le chiavi a nell'oggetto per visualizzare le singole proprietà
+        i++
+        htmlTable += '<th>' + key + '</th>';
+        console.log(key)
+    }
+}
+
+htmlTable += '</tr>' + '</thead>' + '<tbody>';
 
 // ciclo ogni studente per inserire con un prompt la descrizione
 for (var i = 0; i < studenti.length; i++) {
@@ -78,4 +80,3 @@ for (var i = 0; i < studenti.length; i++) {
 outputTable.innerHTML = htmlTable + '</tbody>';
 
 console.log(studenti);
-
