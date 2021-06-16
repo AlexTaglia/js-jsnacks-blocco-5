@@ -63,13 +63,16 @@ htmlTable += '</tr>' + '</thead>' + '<tbody>';
 
 // ciclo ogni studente per inserire con un prompt la descrizione
 for (var i = 0; i < studenti.length; i++) {
+    
     var descrizioneInput = prompt('Inserisci la descrizione di ' + studenti[i].nome + ' ' + studenti[i].cognome)
     studenti[i].descrizione = descrizioneInput;
+    
     htmlTable += '<tr>';
-    htmlTable += '<td>' + studenti[i].nome + '</td>';
-    htmlTable += '<td>' + studenti[i].cognome + '</td>';
-    htmlTable += '<td>' + studenti[i].age + '</td>';
-    htmlTable += '<td>' + studenti[i].descrizione + '</td>';
+    
+    for (var key in studenti[i]){  
+        htmlTable += '<td>' + studenti[i][key] + '</td>';
+    }
+
     htmlTable += '</tr>';
 }
 
