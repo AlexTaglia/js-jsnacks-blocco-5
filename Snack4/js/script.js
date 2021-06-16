@@ -29,31 +29,53 @@ Visualizzare nell’html questi dati in una forma tabellare.
 
 // Creo un array di 3 studenti con descrizione vuota
 var studenti = [
-    { 
-        nome: 'Mario', 
-        cognome: 'Rossi', 
-        age: 18,  
+    {
+        nome: 'Mario',
+        cognome: 'Rossi',
+        age: 18,
         descrizione: ''
     },
-    { 
-        nome: 'Carlo', 
-        cognome: 'Bianchi', 
-        age: 19,  
+    {
+        nome: 'Carlo',
+        cognome: 'Bianchi',
+        age: 19,
         descrizione: ''
     },
-    { 
-        nome: 'Luigi', 
-        cognome: 'Verdi', 
-        age: 18,  
+    {
+        nome: 'Luigi',
+        cognome: 'Verdi',
+        age: 18,
         descrizione: ''
     }
 ]
 
+var outputTable = document.querySelector('#studenti-table');
+var htmlTable = ''
+
+htmlTable += '<thead>';
+htmlTable += '<tr>';
+htmlTable += '<th>' + 'Nome' + '</th>';
+htmlTable += '<th>' + 'Cognome' + '</th>';
+htmlTable += '<th>' + 'Anni' + '</th>';
+htmlTable += '<th>' + 'Descrizione' + '</th>';
+htmlTable += '</tr>';
+htmlTable += '</thead>';
+htmlTable += '<tbody>';
+
 
 // ciclo ogni studente per inserire con un prompt la descrizione
-for (var i = 0;i < studenti.length; i++){
+for (var i = 0; i < studenti.length; i++) {
     var descrizioneInput = prompt('Inserisci la descrizione di ' + studenti[i].nome + ' ' + studenti[i].cognome)
     studenti[i].descrizione = descrizioneInput;
+    htmlTable += '<tr>';
+    htmlTable += '<td>' + studenti[i].nome + '</td>';
+    htmlTable += '<td>' + studenti[i].cognome + '</td>';
+    htmlTable += '<td>' + studenti[i].age + '</td>';
+    htmlTable += '<td>' + studenti[i].descrizione + '</td>';
+    htmlTable += '</tr>';
 }
 
+outputTable.innerHTML = htmlTable + '</tbody>';
+
 console.log(studenti);
+
