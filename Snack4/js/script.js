@@ -54,13 +54,9 @@ var htmlTable = ''
 
 htmlTable += '<thead>' + '<tr>';
 
-for (var i = 0; i < studenti.length; i++){ //Navighiamo all'interno dell'array
-    
-    for (var key in studenti[i]){  //Navighiamo le chiavi a nell'oggetto per visualizzare le singole proprietà
-        i++
-        htmlTable += '<th>' + key + '</th>';
-        console.log(key)
-    }
+for (var key in studenti[0]){  
+    htmlTable += '<th>' + key + '</th>';
+    console.log(key)
 }
 
 htmlTable += '</tr>' + '</thead>' + '<tbody>';
